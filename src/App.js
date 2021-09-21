@@ -5,7 +5,7 @@ import Faction from "./pages/Faction";
 import SiteHeader from "./components/SiteHeader";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { endpoint } from "./utils/enpoint";
-import { Center, ChakraProvider, Container } from "@chakra-ui/react";
+import {  ChakraProvider, Container } from "@chakra-ui/react";
 // apollo client
 const apollo = new ApolloClient({
   uri: `${endpoint}/graphql`,

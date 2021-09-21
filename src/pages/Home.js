@@ -1,29 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { endpoint } from "../utils/enpoint";
-import { useQuery, gql } from "@apollo/client";
 import { SimpleGrid, Box, Skeleton } from "@chakra-ui/react";
-
-const HEROES = gql`
-  query GetHeroes {
-    heroes {
-      id
-      hero_name
-      hero_image {
-        url
-      }
-    }
-  }
-`;
+import { useFetch } from "../hooks/useFetch";
 
 export default function Home() {
-  const { loading, error, data } = useQuery(HEROES);
+  const { loading, error, data } = useFetch(
+    endpoint +'/heroes'
+  );
   if (loading) return <Skeleton height="70px" />;
 
   if (error) return <p>Error :( </p>;
+  console.log(data);
   return (
     <SimpleGrid minChildWidth="75px" spacing="4px">
-      {data.heroes.map((hero) => (
+      {data.map((hero) => (
         <Link to={`/hero/${hero.id}`}>
           <Box key={hero.id}>
             <img

@@ -1,27 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { endpoint } from "../utils/enpoint";
-import { useQuery, gql } from "@apollo/client";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { Flex, Box, Link as ChakraLink } from "@chakra-ui/react";
 import { Center, Spacer } from "@chakra-ui/layout";
-
-const FACTIONS = gql`
-  query factions {
-    factions {
-      id
-      faction_name
-      shadow_color
-      faction_image {
-        url
-      }
-    }
-  }
-`;
+import useFetch from "../hooks/useFetch";
 
 export default function SiteHeader() {
-  const { loading, error, data } = useQuery(FACTIONS);
-  if (loading) return <Skeleton />;
+  const { loading, error, data } = useFetch(
+    "https://heroes-backend.herokuapp.com/factions"
+  );
+  if (loading) return <Skeleton height="70px" />;
 
   if (error) return <p>Error :( </p>;
   return (
@@ -33,7 +22,7 @@ export default function SiteHeader() {
       </Box>
       <Center>
         <Flex justify="space-between" maxWidth="container.md" my="5">
-          {data.factions.map((faction) => (
+          {data.map((faction) => (
             <Link key={faction.id} to={`/faction/${faction.id}`}>
               <Box px="2">
                 <img

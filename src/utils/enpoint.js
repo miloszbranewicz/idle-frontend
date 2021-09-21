@@ -1,1 +1,1 @@
-export const endpoint  = "http://localhost:1337";
+export const endpoint = "https://heroes-backend.herokuapp.com";
