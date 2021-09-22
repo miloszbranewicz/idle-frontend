@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { endpoint } from "../utils/enpoint";
 import { Skeleton } from "@chakra-ui/skeleton";
 import { Flex, Box, Link as ChakraLink } from "@chakra-ui/react";
 import { Center, Spacer } from "@chakra-ui/layout";
@@ -26,7 +25,7 @@ export default function SiteHeader() {
             <Link key={faction.id} to={`/faction/${faction.id}`}>
               <Box px="2">
                 <img
-                  src={endpoint + faction.faction_image.url}
+                  src={faction.faction_image.url}
                   alt={faction.faction_image.url}
                   width={35}
                   height={35}

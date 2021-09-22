@@ -1,6 +1,5 @@
 import React from "react";
 import { useParams } from "react-router";
-import { endpoint } from "../utils/enpoint";
 import { useQuery, gql } from "@apollo/client";
 import HeroAvatar from "../components/HeroAvatar";
 
@@ -38,12 +37,12 @@ export default function Listing() {
   return (
     <>
       <HeroAvatar
-        factionImgLink={endpoint + data.hero.faction.faction_image.url}
+        factionImgLink={data.hero.faction.faction_image.url}
         factionAltText={data.hero.faction.faction_image.url}
         factionImgWidth={30}
         factionImgHeight={30}
         heroName={data.hero.hero_name}
-        heroImgLink={endpoint + data.hero.hero_image.url}
+        heroImgLink={data.hero.hero_image.url}
         heroAltText={data.hero.hero_image.name}
         heroImgWidth={128}
         heroImgHeight={128}

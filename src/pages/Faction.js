@@ -4,7 +4,6 @@ import React from "react";
 import { useParams } from "react-router";
 import { SimpleGrid, Box } from "@chakra-ui/layout";
 import { Link } from "react-router-dom";
-import { endpoint } from "../utils/enpoint";
 
 const FACTION = gql`
   query getFactions($id: ID!) {
@@ -38,7 +37,7 @@ export default function Faction() {
         <Link to={`/hero/${hero.id}`}>
           <Box key={hero.id}>
             <img
-              src={endpoint + hero.hero_image.url}
+              src={hero.hero_image.url}
               alt={hero.hero_image.name}
               width={72}
               height={72}
