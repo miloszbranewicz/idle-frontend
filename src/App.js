@@ -23,6 +23,7 @@ function App() {
         <ApolloProvider client={apollo}>
           <Container maxW="100%" p="0" fontFamily="Poppins">
             <SiteHeader />
+            
             <Switch>
               <Route exact path="/">
                 <Home />

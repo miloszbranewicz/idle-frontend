@@ -1,9 +1,10 @@
 import React from "react";
+import MobileMenu from "../components/MobileMenu";
 
 export default function Items() {
   return (
     <div>
-      <h1>Items page placeholder</h1>
+      <MobileMenu />
     </div>
   );
 }
