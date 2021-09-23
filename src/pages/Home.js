@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { endpoint } from "../utils/enpoint";
-import { SimpleGrid, Box, Skeleton } from "@chakra-ui/react";
+import { Container, Skeleton } from "@chakra-ui/react";
 import { useFetch } from "../hooks/useFetch";
-
+import { Heading } from "@chakra-ui/layout";
 export default function Home() {
   const { loading, error, data } = useFetch(endpoint + "/heroes");
   if (loading) return <Skeleton height="70px" />;
@@ -11,23 +10,11 @@ export default function Home() {
   if (error) return <p>Error :( </p>;
   console.log(data);
   return (
-    <SimpleGrid minChildWidth="75px" spacing="4px">
-      {loading ? (
-        <Skeleton />
-      ) : (
-        data.map((hero) => (
-          <Link to={`/hero/${hero.id}`}>
-            <Box key={hero.id}>
-              <img
-                src={hero.hero_image.url}
-                alt={hero.hero_image.name}
-                width={72}
-                height={72}
-              ></img>
-            </Box>
-          </Link>
-        ))
-      )}
-    </SimpleGrid>
+    <Container textAlign='center' maxW="container.lg" mt="3rem">
+      <Heading  as="h1" fontSize="42px">
+        Idle Heroes Strategies, Tips & Info
+      </Heading>
+      <Heading mt='1.5rem' as='h2' fontSize='24px' color='#F24E1E'>Hot Idle Articles</Heading>
+    </Container>
   );
 }

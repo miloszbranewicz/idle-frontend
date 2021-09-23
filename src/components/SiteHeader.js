@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Skeleton } from "@chakra-ui/skeleton";
-import { Flex, Box, Link as ChakraLink } from "@chakra-ui/react";
-import { Center, Spacer } from "@chakra-ui/layout";
+import { Box, Link as ChakraLink } from "@chakra-ui/react";
+import { HStack } from "@chakra-ui/layout";
 import useFetch from "../hooks/useFetch";
+import { Image } from "@chakra-ui/image";
 
 export default function SiteHeader() {
   const { loading, error, data } = useFetch(
@@ -13,29 +14,35 @@ export default function SiteHeader() {
 
   if (error) return <p>Error :( </p>;
   return (
-    <Box mb="5">
-      <Box p="4" borderBottom="1px" borderColor="gray.200">
-        <Link to="/">
-          <ChakraLink>Home</ChakraLink>
-        </Link>
+    <Box>
+      <Box
+        backgroundImage="https://res.cloudinary.com/dofpdamyl/image/upload/v1632423017/image_1_60c3bf94ac.jpg"
+        h="250px"
+        backgroundSize="cover"
+        backgroundPosition="center"
+      ></Box>
+      <Box background="#151515" fontWeight="700" fontSize="18px" color="white">
+        <HStack p="1rem" justify="space-around" maxW="75%" mx="auto">
+          <Link to="/">
+            <ChakraLink>Home</ChakraLink>
+          </Link>
+          <Link to="/heroes">
+            <ChakraLink>Heroes</ChakraLink>
+          </Link>
+          <Link to="/items">
+            <ChakraLink>Items</ChakraLink>
+          </Link>
+          <Link to="/buildings">
+            <ChakraLink>Buildings</ChakraLink>
+          </Link>
+          <Link to="/activities">
+            <ChakraLink>Activities</ChakraLink>
+          </Link>
+          <Link to="/beginner-tips">
+            <ChakraLink>Beginner Tips</ChakraLink>
+          </Link>
+        </HStack>
       </Box>
-      <Center>
-        <Flex justify="space-between" maxWidth="container.md" my="5">
-          {data.map((faction) => (
-            <Link key={faction.id} to={`/faction/${faction.id}`}>
-              <Box px="2">
-                <img
-                  src={faction.faction_image.url}
-                  alt={faction.faction_image.url}
-                  width={35}
-                  height={35}
-                />
-              </Box>
-              <Spacer />
-            </Link>
-          ))}
-        </Flex>
-      </Center>
     </Box>
   );
 }
