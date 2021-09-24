@@ -18,3 +18,8 @@ ul {
   padding: 0;
   padding: 1rem;
 }
+
+.flame-icon {
+  display: inline;
+  margin-right: 0.5rem;
+}

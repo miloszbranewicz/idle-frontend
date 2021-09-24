@@ -10,26 +10,31 @@ import Items from "./pages/Items";
 import Buildings from "./pages/Buildings";
 import Activities from "./pages/Activities";
 import BeginnerTips from "./pages/BeginnerTips";
+import Faction from "./pages/Faction";
+import Hero from "./pages/Hero";
 // apollo client
 const apollo = new ApolloClient({
   uri: `${endpoint}/graphql`,
   cache: new InMemoryCache(),
 });
 
-function App() {
+export function App() {
   return (
     <Router>
       <ChakraProvider>
         <ApolloProvider client={apollo}>
           <Container maxW="100%" p="0" fontFamily="Poppins">
             <SiteHeader />
-            
+
             <Switch>
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route path="/heroes">
-                <Heroes></Heroes>
+              <Route exact path="/heroes/">
+                <Heroes />
+              </Route>
+              <Route path="/heroes/:name">
+                <Hero />
               </Route>
               <Route path="/items">
                 <Items />
@@ -42,6 +47,9 @@ function App() {
               </Route>
               <Route path="/beginner-tips">
                 <BeginnerTips />
+              </Route>
+              <Route path="/faction/:name">
+                <Faction />
               </Route>
             </Switch>
           </Container>
