@@ -19,9 +19,9 @@ const apollo = new ApolloClient({
 export function App() {
   return (
     <Router>
-      <main className="container border-2">
-        <ApolloProvider client={apollo}>
-          <SiteHeader />
+      <ApolloProvider client={apollo}>
+        <SiteHeader />
+        <main className="mainContent">
           <Switch>
             <Route exact path="/">
               <Home />
@@ -44,12 +44,12 @@ export function App() {
             <Route path="/beginner-tips">
               <BeginnerTips />
             </Route>
-            <Route path="/faction/:name">
+            <Route path="/heroes/faction/:name">
               <Faction />
             </Route>
           </Switch>
-        </ApolloProvider>
-      </main>
+        </main>
+      </ApolloProvider>
     </Router>
   );
 }

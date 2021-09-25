@@ -1,3 +1,7 @@
-.mainHeader {
-  @apply p-3;
+.subheader {
+  @apply text-xl font-bold flex place-content-center;
+  color: #f24e1e;
+}
+.flameIcon {
+  @apply place-self-center mr-1;
 }

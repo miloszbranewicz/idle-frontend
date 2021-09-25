@@ -1,0 +1,15 @@
+.headerImage {
+  background-image: url("https://res.cloudinary.com/dofpdamyl/image/upload/v1632593989/image_1_646619a98b.jpg");
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.headerLinks {
+  @apply font-bold;
+  background-color: #151515;
+  color: #fff;
+}
+.headerItems {
+  @apply flex max-w-2xl justify-around mx-auto items-center py-4 flex-col md:flex-row;
+}

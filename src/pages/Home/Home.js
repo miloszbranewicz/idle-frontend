@@ -9,15 +9,15 @@ export default function Home() {
   if (error) return <p>Error :( </p>;
   console.log(data);
   return (
-    <div>
-      <h1 className={styles.mainHeader}>
+    <section>
+      <h1 className='mainHeader'>
         {/* fs='42px  #F24E1E 24px */}
         Idle Heroes Strategies, Tips & Info
       </h1>
-      <h2>
-        <IoFlame className="flame-icon" />
+      <h2 className={styles.subheader}>
+        <IoFlame className={styles.flameIcon} />
         Hot Idle Articles
       </h2>
-    </div>
+    </section>
   );
 }
