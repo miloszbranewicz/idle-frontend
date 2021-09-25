@@ -2,7 +2,7 @@ import React from "react";
 import { endpoint } from "../../utils/enpoint";
 import useFetch from "../../hooks/useFetch";
 import { Link } from "react-router-dom";
-import Factions from "../../components/Factions";
+import Factions from "../../components/Factions/Factions";
 
 export default function Listing() {
   const { loading, error, data } = useFetch(endpoint + "/heroes");

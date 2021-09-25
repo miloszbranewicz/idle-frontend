@@ -1,7 +1,7 @@
 import { endpoint } from "../../utils/enpoint";
 import { useFetch } from "../../hooks/useFetch";
 import { IoFlame } from "react-icons/io5";
-
+import styles from "./home.module.css";
 export default function Home() {
   const { loading, error, data } = useFetch(endpoint + "/heroes");
   if (loading) return <p>Loading...</p>;
@@ -10,7 +10,7 @@ export default function Home() {
   console.log(data);
   return (
     <div>
-      <h1>
+      <h1 className={styles.mainHeader}>
         {/* fs='42px  #F24E1E 24px */}
         Idle Heroes Strategies, Tips & Info
       </h1>

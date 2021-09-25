@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Heroes from "./pages/Heroes/Heroes";
-import SiteHeader from "./components/SiteHeader";
+import SiteHeader from "./components/SiteHeader/SiteHeader";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { endpoint } from "./utils/enpoint";
 import Items from "./pages/Items/Items";
@@ -19,35 +19,37 @@ const apollo = new ApolloClient({
 export function App() {
   return (
     <Router>
-      <ApolloProvider client={apollo}>
-        <SiteHeader />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/heroes/">
-            <Heroes />
-          </Route>
-          <Route path="/heroes/:name">
-            <Hero />
-          </Route>
-          <Route path="/items">
-            <Items />
-          </Route>
-          <Route path="/buildings">
-            <Buildings />
-          </Route>
-          <Route path="/activities">
-            <Activities />
-          </Route>
-          <Route path="/beginner-tips">
-            <BeginnerTips />
-          </Route>
-          <Route path="/faction/:name">
-            <Faction />
-          </Route>
-        </Switch>
-      </ApolloProvider>
+      <main className="container border-2">
+        <ApolloProvider client={apollo}>
+          <SiteHeader />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/heroes/">
+              <Heroes />
+            </Route>
+            <Route path="/heroes/:name">
+              <Hero />
+            </Route>
+            <Route path="/items">
+              <Items />
+            </Route>
+            <Route path="/buildings">
+              <Buildings />
+            </Route>
+            <Route path="/activities">
+              <Activities />
+            </Route>
+            <Route path="/beginner-tips">
+              <BeginnerTips />
+            </Route>
+            <Route path="/faction/:name">
+              <Faction />
+            </Route>
+          </Switch>
+        </ApolloProvider>
+      </main>
     </Router>
   );
 }

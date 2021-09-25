@@ -1,6 +1,6 @@
 import React from "react";
-import useFetch from "../hooks/useFetch";
-import { endpoint } from "../utils/enpoint";
+import useFetch from "../../hooks/useFetch";
+import { endpoint } from "../../utils/enpoint";
 import { Link } from "react-router-dom";
 
 

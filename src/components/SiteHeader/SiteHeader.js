@@ -1,5 +1,5 @@
 import React from "react";
-import ActiveLink from "./ActiveLink";
+import ActiveLink from "../ActiveLink/ActiveLink";
 export default function SiteHeader() {
   return (
     <div>
