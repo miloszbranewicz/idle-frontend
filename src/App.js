@@ -29,7 +29,7 @@ export function App() {
             <Route exact path="/heroes/">
               <Heroes />
             </Route>
-            <Route path="/heroes/:name">
+            <Route exact path="/heroes/:name">
               <Hero />
             </Route>
             <Route path="/items">
