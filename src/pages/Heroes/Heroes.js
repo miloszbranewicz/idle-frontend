@@ -6,11 +6,11 @@ import Factions from "../../components/Factions/Factions";
 
 export default function Listing() {
   const { loading, error, data } = useFetch(endpoint + "/heroes");
-  if (loading) return <p>Loading...</p>;
 
+  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :( </p>;
   return (
-    <div>
+    <section>
       <Factions />
       <div>
         {data.map((hero) => (
@@ -26,6 +26,6 @@ export default function Listing() {
           </Link>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

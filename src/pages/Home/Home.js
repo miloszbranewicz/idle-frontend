@@ -5,12 +5,10 @@ import styles from "./home.module.css";
 export default function Home() {
   const { loading, error, data } = useFetch(endpoint + "/heroes");
   if (loading) return <p>Loading...</p>;
-
   if (error) return <p>Error :( </p>;
-  console.log(data);
   return (
     <section>
-      <h1 className='mainHeader'>
+      <h1 className="mainHeader">
         {/* fs='42px  #F24E1E 24px */}
         Idle Heroes Strategies, Tips & Info
       </h1>

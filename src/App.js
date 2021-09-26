@@ -23,30 +23,14 @@ export function App() {
         <SiteHeader />
         <main className="mainContent">
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/heroes/">
-              <Heroes />
-            </Route>
-            <Route exact path="/heroes/:name">
-              <Hero />
-            </Route>
-            <Route path="/items">
-              <Items />
-            </Route>
-            <Route path="/buildings">
-              <Buildings />
-            </Route>
-            <Route path="/activities">
-              <Activities />
-            </Route>
-            <Route path="/beginner-tips">
-              <BeginnerTips />
-            </Route>
-            <Route path="/heroes/faction/:name">
-              <Faction />
-            </Route>
+            <Route exact path="/" component={Home}></Route>
+            <Route exact path="/heroes/" component={Heroes}></Route>
+            <Route path="/heroes/:id" component={Hero}></Route>
+            <Route path="/items" component={Items}></Route>
+            <Route path="/buildings" component={Buildings}></Route>
+            <Route path="/activities" component={Activities}></Route>
+            <Route path="/beginner-tips" component={BeginnerTips}></Route>
+            <Route path="/faction/:id" component={Faction}></Route>
           </Switch>
         </main>
       </ApolloProvider>

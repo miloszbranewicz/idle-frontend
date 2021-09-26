@@ -3,7 +3,7 @@ import styles from "./siteHeader.module.css";
 import { BsFillHeartFill } from "react-icons/bs";
 import { FcMenu } from "react-icons/fc";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 export default function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -12,11 +12,18 @@ export default function SiteHeader() {
       <div className={styles.headerImage} />
       <nav>
         <div className={styles.headerLinks}>
-          <Link to="/">
-            <BsFillHeartFill className="inline text-2xl cursor-pointer" />
-          </Link>
+          <ActiveLink
+            className="inline text-2xl cursor-pointer"
+            to="/"
+            label={<BsFillHeartFill />}
+            activeOnlyWhenExact={true}
+          />
 
-          <div className={isOpen ? styles.headerItemsOpen : styles.headerItems}>
+          <div
+            className={`${
+              isOpen ? styles.headerItemsOpen : styles.headerItems
+            } ${styles.kek}`}
+          >
             <ActiveLink
               to="/"
               activeOnlyWhenExact={true}
