@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router";
 import { gql, useQuery } from "@apollo/client";
+import HeroSkills from "../../components/HeroSkills/HeroSkills";
 const HERO = gql`
   query hero($id: ID!) {
     hero(id: $id) {
@@ -31,5 +32,6 @@ export default function Hero() {
   return <section>
     <h1>{hero.hero_name}</h1>
     <img src={hero.hero_image.url} width={150} height={150} alt={hero.hero_image.name}/>
+    <HeroSkills/>
   </section>;
 }
